@@ -2,48 +2,115 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Thierno Diallo">
+        <meta name="description" content="Mon portfolio d'etudiant en reseaux et telecommunications. Découvrez mes projets, compétences et expériences dans les reseaux et telecommunications.">
         <title>{% block title %}base{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://bootswatch.com/5/brite/bootstrap.min.css" >
+        
+
         {% block stylesheets %}
         {% endblock %}
 
         {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
+
         {% endblock %}
+
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <header>
             {% block header %}
                 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="{{path('home')}}">m2d</a>
-                        <div class="collapse navbar-collapse" id="navbarColor02">
-                            <ul class="navbar-nav me-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{path('portfolio')}}">Portfolio</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{path('about')}}">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{path('cv')}}">CV</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{path('contact')}}">Contact</a>
-                                </li>
-                            </ul>
+                    <a class="navbar-brand" href="{{path('home')}}" >
+                        <img src={{asset('images/logoV1.webp')}} alt="Logo" width="70" height="70" class="d-inline-block align-text-top">
+                        {# 𝓓𝓲𝓸𝓾𝓵𝓭𝓮 <br> 𝓓𝓲𝓪𝓵𝓵𝓸 #}
+                    </a>
+                    <button class="navbar-toggler ms-auto" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarColor02"
+                        aria-controls="navbarColor02"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse w-100 justify-content-center align-items-center" id="navbarColor02">
+                                <ul class="navbar-nav d-flex flex-column flex-lg-row align-items-center justify-content-center w-100 gap-2">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="{{path('home')}}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{path('portfolio')}}">Portfolio</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{path('about')}}">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{path('cv')}}">CV</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{path('contact')}}">Contact</a>
+                                    </li>
+                                </ul>
+                                <button id="themeToggle" class="btn btn-outline-light ms-auto"></span>🌙</button>
+                            </div>
                         </div>
-                    </div>
                 </nav>
             {% endblock %}
         </header>
-        <div class="container mt-4">
+        <div class="container mt-4 flex-grow-1">
             {% block body %}
+
             {% endblock %}
         </div>
+        <footer class="bg-dark text-white text-center py-4 mt-4">
+            <div class="container">
+                <h5 class="mb-3">Suivez-moi</h5>
+                <div class="d-flex justify-content-center gap-4 mb-3">
+                    <a href="https://facebook.com" target="_blank" class="text-white fs-3">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="text-white fs-3">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="text-white fs-3">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="text-white fs-3">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="" target="_blank" class="text-white fs-3">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+                    <a href="" target="_blank" class="text-white fs-3">
+                        <i class="bi bi-reddit"></i>
+                    </a>
+                </div>
+                <p class="mb-0">&copy; {{ "now"|date("Y") }} - Mon Portfolio</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script>
+            const btn = document.getElementById("themeToggle");
+            const html = document.documentElement;
+
+            // Charger préférence sauvegardée
+            const theme = localStorage.getItem("theme") || "light";
+            html.setAttribute("data-bs-theme", theme);
+            btn.textContent = theme === "dark" ? "🌞" : "🌙";
+
+            // Toggle
+            btn.addEventListener("click", () => {
+                const current = html.getAttribute("data-bs-theme") === "light" ? "dark" : "light";
+                html.setAttribute("data-bs-theme", current);
+                localStorage.setItem("theme", current);
+                btn.textContent = current === "dark" ? "🌞" : "🌙";
+            });
+        </script>
+
+
     </body>
 </html>

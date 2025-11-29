@@ -3,9 +3,23 @@
 {% block title %}home{% endblock %}
 
 {% block body %}
+    <header>
+            <section class="text-center my-5">
+                <h1>Welcome to My Portfolio</h1>
+
+                <p class="lead">I'm </p>
+                <h2 class="mb-4">Thierno DIALLO</h2>
+                <p> Reseaux et Telecom student at IUT de ROANNE </p>
+            </section>
+    </header>
+
     <main>
         {% block main %}
-           <h1>SALUT c'est m2d</h1>
+            <section class="text-center">
+                <h1></h1>
+                <p class="lead">Discover my projects, skills, and experience.</p>
+                <a href="{{ path('about') }}" class="btn btn-primary btn-lg">Pour en savoir plus !</a>
+            </section>
         {% endblock %}
     </main>
 {% endblock %}
