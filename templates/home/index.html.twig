@@ -3,23 +3,51 @@
 {% block title %}home{% endblock %}
 
 {% block body %}
-    <header>
-            <section class="text-center my-5">
-                <h1>Welcome to My Portfolio</h1>
-
-                <p class="lead">I'm </p>
-                <h2 class="mb-4">Thierno DIALLO</h2>
-                <p> Reseaux et Telecom student at IUT de ROANNE </p>
-            </section>
-    </header>
-
+    
     <main>
         {% block main %}
-            <section class="text-center">
-                <h1></h1>
-                <p class="lead">Discover my projects, skills, and experience.</p>
-                <a href="{{ path('about') }}" class="btn btn-primary btn-lg">Pour en savoir plus !</a>
-            </section>
+            <div class="container mt-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-12 text-center mt-4 mt-lg-0 order-1 order-lg-2">
+                        <img src="{{ asset('images/p2.png') }}" alt="Profile Picture"
+                            class="img-fluid rounded-circle shadow-lg"
+                            style="width:320px;height:320px;object-fit:cover;">
+                    </div>
+
+                    <div class="col-lg-7 col-md-12 order-2 order-lg-1">
+                        <h6 class="text-uppercase text-muted">Thierno mouhamadou dioulde diallo</h6>
+                        <h1 class="fw-bold display-4">
+                            <span class="text-primary">Hi,</span> I'm Thierno
+                        </h1>
+
+                        <p class="lead fs-4 mt-3">
+                            Je suis étudiant en réseaux & télécommunications passionné par
+                            le développement et la cybersécurité.
+                        </p>
+                        <p class="fs-5">
+                            Actuellement en formation, je travaille sur différents projets :
+                        </p>
+                        <ul class="fs-5">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                        <div class="d-flex gap-3 mt-4">
+                            <a class="btn btn-outline-light btn-lg" href="mailto:thiernold28@gmail.com" target="_blank">
+                                <i class="bi bi-envelope-fill"></i>
+                            </a>
+                            <a class="btn btn-outline-primary btn-lg" href="https://linkedin.com" target="_blank">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
+
+                        <a href="{{ path('about') }}" class="btn btn-primary btn-lg mt-4">
+                            En savoir plus →
+                        </a>
+                    </div>
+                </div>
+            </div>
         {% endblock %}
     </main>
 {% endblock %}
