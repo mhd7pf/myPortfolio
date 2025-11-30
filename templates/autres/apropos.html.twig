@@ -3,21 +3,77 @@
 {% block title %}about{% endblock %}
 
 {% block body %}
-    <header>
-            <section class="text-center my-5">
-            </section>
-    </header>
+
     <main>
-        <section class="text-center">
-        </section>
+        <div class="container py-5">
 
-        <section class="text-center">
-        </section>
+            <section class="row align-items-center mb-5">
+                <div class="col-lg-5 mb-4 text-center order-1 order-lg-2">
+                    <video class="img-fluid shadow rounded-4"
+                        style="max-width: 360px; object-fit: cover;"
+                        autoplay loop muted playsinline>
+                        <source src="{{ asset('videos/me.mp4') }}" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                        {# <img src="{{ asset('images/logom2d.webp') }}" alt="Photo de moi"
+                        class="img-fluid shadow rounded-4"
+                        style="max-width: 360px; object-fit: cover;"> #}
+                </div>
 
-        <section class="text-center">
-        </section>
+                <div class="col-lg-7 order-2 order-lg-1">
+                    <h1 class="fw-bold mb-4">About Me</h1>
 
-        <section class="text-center">
-        </section>
+                    <p>
+                        Bonjour, je m'appelle <strong>Thierno</strong>, étudiant en 
+                        réseaux & télécommunications passionné par le développement,
+                        l’infrastructure IT et la cybersécurité.
+                    </p>
+
+                    <p>
+                        Je travaille sur différents projets afin d'améliorer mes
+                        compétences en développement web et en gestion système tout
+                        en découvrant les enjeux actuels du numérique.
+                    </p>
+
+                    <p>
+                        Mon objectif est de créer des solutions innovantes et utiles,
+                        que ce soit pour des entreprises, des projets étudiants ou
+                        personnels. J’aime apprendre, expérimenter et partager ce que
+                        j’apprends avec les autres.
+                    </p>
+                </div>
+            </section>
+
+            <section class="row g-4">
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">📄 Générer mon CV</h4>
+                            <p class="card-text">
+                                Remplissez vos informations et je vous génère un CV automatiquement.
+                            </p>
+                            <a href="{{ path('contact') }}" class="btn btn-primary mt-3">
+                                Accéder →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">💻 Mes Projets</h4>
+                            <p class="card-text">
+                                Découvrez mes réalisations, travaux étudiants et projets personnels.
+                            </p>
+                            <a href="{{ path('portfolio') }}" class="btn btn-primary mt-3">
+                                Voir →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
     </main>
 {% endblock %}
