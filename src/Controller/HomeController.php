@@ -38,4 +38,22 @@ final class HomeController extends AbstractController
         return $this->render('autres/cv.html.twig');
     }
 
+    #[Route('/administrer', name: 'administrer')]
+    public function administrer(): Response
+    {
+        return $this->render('autres/administrer.html.twig');
+    }
+
+    #[Route('/connecter', name: 'connecter')]
+    public function connecter(): Response
+    {
+        return $this->render('autres/connecter.html.twig');
+    }
+
+    #[Route('/programmer', name: 'programmer')]
+    public function programmer(): Response
+    {
+        return $this->render('autres/programmer.html.twig');
+    }
+
 }
