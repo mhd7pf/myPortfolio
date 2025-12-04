@@ -41,20 +41,20 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" href="{{path('home')}}"><i class="bi bi-house-door-fill"></i> Home</a>
                                     </li>
-                                 
-                                    {# <li class="nav-item">
-                                        <a class="nav-link" href="{{path('portfolio')}}"><i class="bi bi-briefcase-fill"></i> Portfolio</a>
-                                    </li> #}
                                     
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{{path('portfolio')}}" role="button" aria-haspopup="true" aria-expanded="false"><i class="bi bi-briefcase-fill"></i> Portfolio</a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{path('administrer')}}">Administrer</a>
-                                            <a class="dropdown-item" href="{{path('connecter')}}">Connecter</a>
-                                            <a class="dropdown-item" href="{{path('programmer')}}">Programmer</a>
-                                            {# <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Separated link</a> #}
-                                        </div>
+                                        <a class="nav-link dropdown-toggle" href="#" id="portfolioDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-briefcase-fill"></i> Portfolio
+                                        </a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                                            <li><a class="dropdown-item" href="{{ path('portfolio') }}">Tout le portfolio</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="{{ path('administrer') }}">Administrer</a></li>
+                                            <li><a class="dropdown-item" href="{{ path('connecter') }}">Connecter</a></li>
+                                            <li><a class="dropdown-item" href="{{ path('programmer') }}">Programmer</a></li>
+                                        </ul>
                                     </li>
 
                                     <li class="nav-item">
@@ -101,7 +101,10 @@
                         <i class="bi bi-reddit"></i>
                     </a>
                 </div>
-                <p class="mb-0">&copy; {{ "now"|date("Y") }} - Mon Portfolio</p>
+                <p class="mb-0">&copy; {{ "now"|date("Y") }} - Thierno DIALLO </p>
+                <small class="text-secondary-50 d-block mt-1">
+                    Tous droits réservés.
+                </small>
             </div>
         </footer>
 

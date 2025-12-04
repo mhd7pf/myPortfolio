@@ -9,22 +9,122 @@
         </section>
     </header>
     <main>
-        <section class="text-center">
-            
-        </section>
-        <section class="text-center">
-        </section>
+        <div class="container py-5">
 
-        <section class="text-center">
-        </section>
+            <section class="mb-5">
+                <h2 class="fw-bold mb-4">
+                    <a href="{{ path('administrer') }}" class="text-decoration-none text-blight">
+                        <i class="bi bi-hdd-network"></i> Administrer
+                    </a>
+                </h2>
 
-        <section class="text-center">
-        </section>
+                <div class="accordion" id="accordionAdministrer">
 
-        <section class="text-center">
-        </section>
-        
-        <section class="text-center">
-        </section>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#adm1">
+                                📦 AC11.01 Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications
+                            </button>
+                        </h2>
+                        <div id="adm1" class="accordion-collapse collapse">
+                            <div class="accordion-body d-flex gap-3">
+                                <img src="/images/apprentissages/serveur.webp"
+                                    class="img-thumbnail"
+                                    style="width:100px;height:80px;object-fit:cover;">
+                                
+                                <a href="#"
+                                class="fw-bold text-decoration-none">
+                                    👉 Voir l’apprentissage
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#adm2">
+                                🖥️ AC11.02 Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet
+                            </button>
+                        </h2>
+                        <div id="adm2" class="accordion-collapse collapse">
+                            <div class="accordion-body d-flex gap-3">
+                                <img src="/images/apprentissages/virtualisation.webp"
+                                    class="img-thumbnail"
+                                    style="width:100px;height:80px;object-fit:cover;">
+
+                                <a href="#"
+                                class="fw-bold text-decoration-none">
+                                    👉 Voir l’apprentissage
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="fw-bold mb-4">
+                    <a href="{{ path('connecter') }}" class="text-decoration-none text-blight">
+                        <i class="bi bi-router"></i> Connecter
+                    </a>
+                </h2>
+
+                <div class="accordion" id="accordionConnecter">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#con1">
+                                AC12.01 Mesurer et analyser les signaux
+                            </button>
+                        </h2>
+                        <div id="con1" class="accordion-collapse collapse">
+                            <div class="accordion-body d-flex gap-3">
+                                <img src="/images/apprentissages/routing.webp"
+                                    class="img-thumbnail"
+                                    style="width:100px;height:80px;object-fit:cover;">
+
+                                <a href="#"
+                                class="fw-bold text-decoration-none">
+                                    👉 Voir l’apprentissage
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section class="mb-5">
+                <h2 class="fw-bold mb-4">
+                    <a href="{{ path('programmer') }}" class="text-decoration-none text-blight">
+                        <i class="bi bi-code-slash"></i> Programmer
+                    </a>
+                </h2>
+
+                <div class="accordion" id="accordionProgrammer">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#prog1">
+                                🧠 AC13.01 Utiliser un système informatique et ses outils
+                            </button>
+                        </h2>
+                        <div id="prog1" class="accordion-collapse collapse">
+                            <div class="accordion-body d-flex gap-3">
+                                <img src="/images/apprentissages/api.webp"
+                                    class="img-thumbnail"
+                                    style="width:100px;height:80px;object-fit:cover;">
+
+                                <a href="#"
+                                class="fw-bold text-decoration-none">
+                                    👉 Voir l’apprentissage
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 {% endblock %}
