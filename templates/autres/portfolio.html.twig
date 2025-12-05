@@ -5,7 +5,9 @@
 {% block body %}
     <header>
         <section class="text-center my-5">
-        
+            <h1 class="fw-bold display-3 text-center mb-5">
+                Mon Portfolio
+            </h1>   
         </section>
     </header>
     <main>
@@ -18,48 +20,29 @@
                     </a>
                 </h2>
 
-                <div class="accordion" id="accordionAdministrer">
+                <div class="card shadow-lg border-0 mb-5 p-3"
+                    style="border-radius: 20px; background: linear-gradient(90deg);">
+                    <div class="row g-0 align-items-center">
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#adm1">
-                                📦 AC11.01 Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications
-                            </button>
-                        </h2>
-                        <div id="adm1" class="accordion-collapse collapse">
-                            <div class="accordion-body d-flex gap-3">
-                                <img src="/images/apprentissages/serveur.webp"
-                                    class="img-thumbnail"
-                                    style="width:100px;height:80px;object-fit:cover;">
-                                
-                                <a href="#"
-                                class="fw-bold text-decoration-none">
-                                    👉 Voir l’apprentissage
-                                </a>
-                            </div>
+                        <div class="col-md-8 p-4">
+                            <h3 class="fw-bold">Samba serveur</h3>
+                            <p class="text-muted">Catégorie / Technologie</p>
+                            <p>Courte description expliquant le projet, sa finalité et les compétences mises en œuvre.</p>
+                            <a href="" class="btn btn-outline-dark btn-sm">Voir le projet</a>
                         </div>
-                    </div>
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#adm2">
-                                🖥️ AC11.02 Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet
-                            </button>
-                        </h2>
-                        <div id="adm2" class="accordion-collapse collapse">
-                            <div class="accordion-body d-flex gap-3">
-                                <img src="/images/apprentissages/virtualisation.webp"
-                                    class="img-thumbnail"
-                                    style="width:100px;height:80px;object-fit:cover;">
-
-                                <a href="#"
-                                class="fw-bold text-decoration-none">
-                                    👉 Voir l’apprentissage
-                                </a>
-                            </div>
+                        <div class="col-md-4 text-center">
+                            <img src="/images/samba" class="img-fluid rounded-4 shadow"
+                                style="max-height: 180px; object-fit: cover;">
                         </div>
-                    </div>
 
+                    </div>
+                </div>
+
+                <div class="text-center mb-5">
+                    <a href="{{ path('administrer') }}" class="btn px-4 py-2">
+                        En savoir plus sur cette compétence →
+                    </a>
                 </div>
             </section>
 
@@ -69,60 +52,66 @@
                         <i class="bi bi-router"></i> Connecter
                     </a>
                 </h2>
+                <div class="card shadow-lg border-0 mb-5 p-3"
+                    style="border-radius: 20px; background: linear-gradient(90deg);">
+                    <div class="row g-0 align-items-center">
 
-                <div class="accordion" id="accordionConnecter">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#con1">
-                                AC12.01 Mesurer et analyser les signaux
-                            </button>
-                        </h2>
-                        <div id="con1" class="accordion-collapse collapse">
-                            <div class="accordion-body d-flex gap-3">
-                                <img src="/images/apprentissages/routing.webp"
-                                    class="img-thumbnail"
-                                    style="width:100px;height:80px;object-fit:cover;">
-
-                                <a href="#"
-                                class="fw-bold text-decoration-none">
-                                    👉 Voir l’apprentissage
-                                </a>
-                            </div>
+                        <div class="col-md-8 p-4">
+                            <h3 class="fw-bold">Audit Wifi</h3>
+                            <p class="text-muted">Catégorie / Technologie</p>
+                            <p>Courte description expliquant le projet, sa finalité et les compétences mises en œuvre.</p>
+                            <a href="#" class="btn btn-outline-dark btn-sm">Voir le projet</a>
                         </div>
-                    </div>
 
+                        <div class="col-md-4 text-center">
+                            <img src="/images/audit.png" class="img-fluid rounded-4 shadow"
+                                style="max-height: 180px; object-fit: cover;">
+                        </div>
+
+                    </div>
                 </div>
+
+                <div class="text-center mb-5">
+                    <a href="{{ path('connecter') }}" class="btn px-4 py-2">
+                        En savoir plus sur cette compétence →
+                    </a>
+                </div>
+                
             </section>
 
 
             <section class="mb-5">
                 <h2 class="fw-bold mb-4">
-                    <a href="{{ path('programmer') }}" class="text-decoration-none text-blight">
+                    <a href="{{ path('connecter') }}" class="text-decoration-none text-blight">
                         <i class="bi bi-code-slash"></i> Programmer
                     </a>
                 </h2>
+                <div class="card shadow-lg border-0 mb-5 p-3"
+                    style="border-radius: 20px; background: linear-gradient(90deg);">
+                    <div class="row g-0 align-items-center">
 
-                <div class="accordion" id="accordionProgrammer">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#prog1">
-                                🧠 AC13.01 Utiliser un système informatique et ses outils
-                            </button>
-                        </h2>
-                        <div id="prog1" class="accordion-collapse collapse">
-                            <div class="accordion-body d-flex gap-3">
-                                <img src="/images/apprentissages/api.webp"
-                                    class="img-thumbnail"
-                                    style="width:100px;height:80px;object-fit:cover;">
-
-                                <a href="#"
-                                class="fw-bold text-decoration-none">
-                                    👉 Voir l’apprentissage
-                                </a>
-                            </div>
+                        <div class="col-md-8 p-4">
+                            <h3 class="fw-bold">Projet Fractale</h3>
+                            <p class="text-muted">Catégorie / Technologie</p>
+                            <p>Courte description expliquant le projet, sa finalité et les compétences mises en œuvre.</p>
+                            <a href="#" class="btn btn-outline-dark btn-sm">Voir le projet</a>
                         </div>
+
+                        <div class="col-md-4 text-center">
+                            <img src="/images/mandelbrot.webp" class="img-fluid rounded-4 shadow"
+                                style="max-height: 180px; object-fit: cover;">
+                        </div>
+
                     </div>
                 </div>
+
+                <div class="text-center mb-5">
+                    <a href="{{ path('programmer') }}" class="btn px-4 py-2">
+                        En savoir plus sur cette compétence →
+                    </a>
+                </div>
+
+                
             </section>
         </div>
 
