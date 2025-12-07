@@ -24,8 +24,8 @@
             {% block header %}
                 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
                     <a class="navbar-brand" href="{{path('home')}}" >
-                        <img src={{asset('images/logom2d.png')}} alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
-                        {# 𝓓𝓲𝓸𝓾𝓵𝓭𝓮 𝓓𝓲𝓪𝓵𝓵𝓸 #}
+                        {# <img src={{asset('images/logom2d.png')}} alt="Logo" width="50" height="50" class="d-inline-block align-text-top"> #}
+                        𝓓𝓲𝓸𝓾𝓵𝓭𝓮 𝓓𝓲𝓪𝓵𝓵𝓸
                     </a>
                     <button class="navbar-toggler ms-auto" type="button"
                         data-bs-toggle="collapse"
@@ -43,12 +43,19 @@
                                     </li>
                                     
                                     <li class="nav-item dropdown">
+                                        <style>
+                                            .dropdown-menu .dropdown-item:hover,
+                                            .dropdown-menu .dropdown-item:active {
+                                                background-color: var(--bs-info) !important;
+                                                color: #fff !important;
+                                            }
+                                        </style>
                                         <a class="nav-link dropdown-toggle" href="#" id="portfolioDropdown" role="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="bi bi-briefcase-fill"></i> Portfolio
                                         </a>
 
-                                        <ul class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                                        <ul class="dropdown-menu btn-info" aria-labelledby="portfolioDropdown">
                                             <li><a class="dropdown-item" href="{{ path('portfolio') }}">Tout le portfolio</a></li>
                                             <li><hr class="dropdown-divider"></li>
                                             <li><a class="dropdown-item" href="{{ path('administrer') }}">Administrer</a></li>
