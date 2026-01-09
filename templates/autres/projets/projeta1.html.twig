@@ -1,3 +1,226 @@
+{# templates/projet/projet_samba.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}samba{% endblock %}
+{% block title %}Serveur Samba - Administrer{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .timeline {
+            position: relative;
+            margin-left: 0.5rem;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0, 0, 0, 0.08);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 3px;
+            top: 0.8rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13,110,253,0.15);
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+
+        <h1 class="fw-bold mb-4">Serveur Samba</h1>
+        <p class="text-muted mb-5">
+            Mise en place d’un serveur de fichiers Samba intégré à un domaine, avec création de partages publics et sécurisés,
+            gestion des utilisateurs et traçabilité des accès.
+        </p>
+
+        <div class="card shadow-lg border-0 mb-5 p-4" style="border-radius: 20px;">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold h4 mb-1">Administrer · Serveur de fichiers Samba</h2>
+                    <p class="text-muted mb-2">Catégorie&nbsp;: Services réseaux · Technologie&nbsp;: Linux, Samba4</p>
+                    <p class="mb-3">
+                        TP réalisé en deux parties : installation et configuration du serveur Samba, puis création de partages
+                        de fichiers pour des clients Linux et Windows dans un réseau hétérogène.
+                        Le projet inclut également la gestion des utilisateurs et groupes via Active Directory.
+                    </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="/images/samba.png"
+                        alt="Schéma serveur Samba"
+                        class="img-fluid rounded-4 shadow-sm"
+                        style="max-height: 180px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+
+        {# Étapes du projet = résumé des TP #}
+        <section class="mb-5">
+            <h3 class="fw-bold h5 mb-3">Étapes du projet</h3>
+
+            <div class="timeline">
+
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">1. Préparation du serveur et du client</h4>
+                        <p class="mb-2">
+                            Installation et configuration d’un serveur Linux et d’un client Ubuntu dans le même réseau,
+                            vérification de la connectivité (ping) entre les deux machines.
+                        </p>
+                        <p class="mb-0">
+                            Désactivation de <code>systemd-resolved</code> et création d’un fichier <code>/etc/resolv.conf</code>
+                            statique pointant vers le serveur Samba comme DNS principal.
+                        </p>
+
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture de cette étape :</p>
+                            <img src="/images/projets/samba_etape1.png"
+                                class="img-fluid rounded border"
+                                alt="Ping et configuration DNS Samba">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">2. Configuration de base de Samba</h4>
+                        <p class="mb-2">
+                            Édition du fichier <code>/etc/samba/smb.conf</code> pour définir la section
+                            <code>[global]</code> (domaine, sécurité, compte invité) et les paramètres de base du serveur.
+                        </p>
+                        <p class="mb-0">
+                            Redémarrage du service <code>samba-ad-dc</code> et vérification de la configuration avec
+                            <code>testparm</code> pour s’assurer qu’aucune erreur n’est présente.
+                        </p>
+
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture de cette étape :</p>
+                            <img src="/images/projets/samba_etape2.png"
+                                class="img-fluid rounded border"
+                                alt="Configuration smb.conf et testparm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">3. Création d’un partage public</h4>
+                        <p class="mb-2">
+                            Création d’un répertoire <code>/samba/public</code>, attribution des permissions, puis ajout
+                            d’une section de partage public dans <code>smb.conf</code> avec accès invité
+                            (<code>guest ok = yes</code>).
+                        </p>
+                        <p class="mb-0">
+                            Redémarrage de Samba et tests d’accès depuis une machine Windows et le client Ubuntu
+                            pour vérifier la visibilité du partage et les droits en lecture/écriture.
+                        </p>
+
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Captures de cette étape :</p>
+                            <img src="/images/projets/samba_etape3_windows.png"
+                                class="img-fluid rounded border mb-2"
+                                alt="Accès au partage public depuis Windows">
+                            <img src="/images/projets/samba_etape3_linux.png"
+                                class="img-fluid rounded border"
+                                alt="Vérification du partage public sur Linux">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">4. Création d’un partage sécurisé</h4>
+                        <p class="mb-2">
+                            Création du groupe <code>smbgrp</code> et de l’utilisateur <code>eve</code>, puis création du
+                            répertoire <code>/samba/secured</code> avec permissions 0770 et groupe propriétaire
+                            <code>smbgrp</code>.
+                        </p>
+                        <p class="mb-0">
+                            Ajout de la section <code>[secured]</code> dans <code>smb.conf</code> pour imposer une
+                            authentification (login/mot de passe) et tests d’accès depuis Windows avec l’utilisateur du domaine.
+                        </p>
+
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture de cette étape :</p>
+                            <img src="/images/projets/samba_etape4.png"
+                                class="img-fluid rounded border"
+                                alt="Accès au partage sécurisé Samba">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">5. Gestion des utilisateurs et groupes AD</h4>
+                        <p class="mb-2">
+                            Utilisation de <code>samba-tool</code> pour créer, lister, supprimer et gérer les comptes
+                            utilisateurs et groupes du domaine Active Directory Samba4.
+                        </p>
+                        <p class="mb-0">
+                            Test de commandes comme <code>samba-tool user create</code>, <code>user list</code>,
+                            <code>group add</code> et <code>group listmembers</code> afin d’administrer l’infrastructure AD
+                            depuis le terminal.
+                        </p>
+
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture de cette étape :</p>
+                            <img src="/images/projets/samba_etape5.png"
+                                class="img-fluid rounded border"
+                                alt="Gestion des utilisateurs avec samba-tool">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">6. Traçabilité et audit des accès</h4>
+                        <p class="mb-2">
+                            Activation des logs Samba par machine cliente dans <code>/var/log/samba/%m.log</code> et
+                            redémarrage du service pour suivre les connexions aux partages.
+                        </p>
+                        <p class="mb-0">
+                            Installation et configuration de <code>auditd</code> pour tracer les opérations
+                            (lecture/écriture/suppression) sur le partage public et analyse des journaux avec
+                            <code>ausearch</code> et <code>tail -f</code>.
+                        </p>
+
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture de cette étape :</p>
+                            <img src="/images/projets/samba_etape6.png"
+                                class="img-fluid rounded border"
+                                alt="Logs Samba et auditd des partages">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        onclick="window.history.back()">
+                    ← Retour à la page précédente
+                </button>
+            </div>
+        </section>
+
+    </div>
+{% endblock %}

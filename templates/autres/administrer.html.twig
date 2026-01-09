@@ -10,9 +10,13 @@
 
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Définition</h3>
-            <p class="mb-0">
-                Ici tu mets la définition officielle de la compétence, ce qu’elle représente,
-                son importance, et en quoi elle est essentielle dans les métiers du numérique.
+            <p  class="fs-5 mb-0">
+                La compétence Administrer les réseaux et l’Internet correspond à la capacité à concevoir, configurer, sécuriser 
+                et maintenir en conditions opérationnelles les infrastructures réseaux d’une organisation (LAN, Wi‑Fi, interconnexions, services Internet, services voix et données, etc.). 
+                Dans le BUT Réseaux & Télécommunications, elle fait partie des compétences cœur du diplôme et conditionne l’obtention du titre, 
+                car elle permet de mobiliser concrètement les connaissances techniques pour délivrer des services numériques fiables et disponibles aux utilisateurs. 
+                Elle est essentielle dans les métiers du numérique, puisque toute application moderne (web, cloud, IoT, outils métiers, communication unifiée) 
+                repose sur des réseaux correctement administrés afin de garantir la performance, la continuité de service et la sécurité des données.
             </p>
         </div>
     </section>
@@ -20,9 +24,17 @@
     <section class="container py-5">
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Ce que j’ai acquis</h3>
-            <p>
-                Ici tu expliques ce que tu as appris par rapport à cette compétence :
-                connaissances techniques, procédures, outils administrés, etc.
+            <p class="fs-5">
+                Pour cette compétence (Administrer les réseaux et l'Internet), j'ai d'abord appris à installer et configurer un poste client fonctionnel dans un réseau local, 
+                en maîtrisant l'installation d'Ubuntu et de Windows sur VirtualBox ainsi que les réglages réseau associés (interfaces, modes réseau, tests de connectivité). 
+                J'ai acquis de solides bases sur les systèmes d'exploitation en utilisant Linux en ligne de commande, en gérant les fichiers, les processus, 
+                les droits et en mettant en place des partages de fichiers Samba et NFS, ce qui m'a permis de gérer les accès réseau et les permissions pour différents utilisateurs. <br><br>
+                J'ai consolidé l'adressage IP statique et dynamique, la configuration de postes dans des LAN simulés, ainsi que l'analyse de trames réseau (CDP, ARP, ICMP, ...) avec Wireshark 
+                pour comprendre le fonctionnement d'une infrastructure existante et vérifier la cohérence des communications. Ces apprentissages m'ont également amené à configurer 
+                les fonctions de base d'un réseau local sur des switchs Cisco (VLAN, ports access/trunk, plan d'adressage) et à mettre en place des services réseaux comme DHCP ou TFTP 
+                en lien avec les ressources du semestre 1. <br><br>
+                Au final, je suis désormais capable de documenter une architecture simple, de vérifier les paramètres essentiels (adressage, VLAN, interfaces) 
+                et de sauvegarder les configurations des équipements, ce qui montre un bon niveau d'acquisition de la compétence Administrer au semestre 1.
             </p>
         </div>
     </section>
@@ -31,11 +43,21 @@
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Mes skills liés à cette compétence</h3>
 
-            <div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-success p-2">Linux</span>
-                <span class="badge bg-dark p-2">Docker</span>
-                <span class="badge bg-secondary p-2">Administration réseau</span>
-                <span class="badge bg-success p-2">Sécurisation</span>
+            <div class="d-flex flex-wrap gap-2 fs-5">
+                <span class="badge bg-success me-2 mb-2">Linux</span>
+                <span class="badge bg-primary me-2 mb-2">Administration système</span>
+                <span class="badge bg-primary me-2 mb-2">Administration réseau</span>
+                <span class="badge bg-warning text-dark me-2 mb-2">VirtualBox</span>
+                <span class="badge bg-info me-2 mb-2">Adressage IP &amp; DHCP</span>
+                <span class="badge bg-info me-2 mb-2">VLAN &amp; switch Cisco</span>
+                <span class="badge bg-warning text-dark me-2 mb-2">Cisco Packet Tracer</span>
+                <span class="badge bg-warning text-dark me-2 mb-2">Analyse réseau (Wireshark)</span>
+                <span class="badge bg-secondary me-2 mb-2">Services réseaux (DNS, DHCP, TFTP, ...)</span>
+                <span class="badge bg-success me-2 mb-2">Partages Samba / NFS</span>
+                <span class="badge bg-secondary px-3 py-2">Sauvegarde de configuration via TFTP (tftpd64)</span>
+                <span class="badge bg-dark px-3 py-2">Documentation d’architecture réseau</span>
+            </div>
+
             </div>
         </div>
     </section>
@@ -48,16 +70,19 @@
             <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
                 <div class="card shadow border-0 h-100" style="border-radius: 20px; width: 100%;">
                     
-                    <img src="{{ asset('images/samba') }}"
+                    <img src="images/samba.png"
                         class="card-img-top"
                         style="border-radius: 20px 20px 0 0; height: 200px; object-fit: cover;">
 
                     <div class="card-body">
                         <h4 class="fw-bold">Samba serveur</h4>
-                        <p class="text-muted">Catégorie / Technologie</p>
-                        <p>Description du projet.</p>
+                        <p class="text-muted">Services réseaux / Linux, Samba4</p>
+                        <p> 
+                            Installation et configuration du serveur Samba, puis création de partages de fichiers pour des clients Linux et Windows dans un réseau hétérogène. 
+                            Le projet inclut également la gestion des utilisateurs et groupes via Active Directory.
+                        </p>
 
-                        <a href="#" class="btn btn-info w-100">
+                        <a href="{{path('projeta1')}}" class="btn btn-info w-100">
                             Voir le projet →
                         </a>
                     </div>

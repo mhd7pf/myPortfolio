@@ -10,9 +10,12 @@
 
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Définition</h3>
-            <p class="mb-0">
-                Ici tu mets la définition officielle de la compétence, ce qu’elle représente,
-                son importance, et en quoi elle est essentielle dans les métiers du numérique.
+            <p class="fs-5 mb-0">
+                La compétence Connecter correspond à la capacité à déployer et raccorder des équipements et supports 
+                de transmission (cuivre, fibre optique, radio, Wi‑Fi, 4G/5G, objets connectés) pour établir des liaisons fiables entre les utilisateurs, 
+                les services et les infrastructures numériques. Elle couvre notamment l’installation physique, le câblage, le paramétrage de base et les tests de bon fonctionnement des liens, 
+                afin d’assurer la continuité des communications dans les réseaux d’entreprise comme chez les opérateurs. Cette compétence est essentielle, 
+                car sans connexions correctement installées et testées, les services numériques (Internet, téléphonie, cloud) ne peuvent tout simplement pas fonctionner.
             </p>
         </div>
     </section>
@@ -20,9 +23,17 @@
     <section class="container py-5">
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Ce que j’ai acquis</h3>
-            <p>
-                Ici tu expliques ce que tu as appris par rapport à cette compétence :
-                connaissances techniques, procédures, outils administrés, etc.
+            <p class="fs-5">
+                Pour cette compétence (Connecter les entreprises et les usagers), j'ai appris à mesurer et interpréter des signaux électriques à l'oscilloscope, 
+                à utiliser les générateurs et bancs de mesure pour vérifier la qualité d'une liaison, et à lire des schémas de transmission. 
+                J'ai développé un bon niveau dans le déploiement de supports de transmission en réalisant du câblage cuivre et des soudures de fibre optique, en contrôlant la continuité, 
+                l'atténuation et le respect des normes de câblage. Les ressources de mathématiques des transmissions (R1.14) et de traitement de signaux (R1.15) m'ont également permis de 
+                manipuler des fonctions et d'analyser des graphiques de signaux pour en extraire des informations utiles (amplitude, phase, fréquence), 
+                ce qui renforce ma capacité à comprendre et caractériser un système de transmission. J'ai enfin acquis des compétences pour qualifier
+                une infrastructure avec des outils de test (analyse du câblage cuivre, audit WiFi) et pour restituer ces résultats de manière claire dans un rapport technique, en m'appuyant 
+                sur les enseignements d'anglais et de communication. <br><br>
+                Au final, je suis désormais capable de mettre en place et de diagnostiquer des liaisons de transmission simples, d'en interpréter les mesures et d'en rendre compte de manière 
+                structurée, ce qui montre un bon niveau d'acquisition de la compétence Connecter au semestre 1.
             </p>
         </div>
     </section>
@@ -31,11 +42,24 @@
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Mes skills liés à cette compétence</h3>
 
-            <div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-success p-2">Linux</span>
-                <span class="badge bg-dark p-2">Docker</span>
-                <span class="badge bg-secondary p-2">Administration réseau</span>
-                <span class="badge bg-success p-2">Sécurisation</span>
+            <div class="d-flex flex-wrap gap-2 fs-5">
+                {# Mesure & signaux #}
+                <span class="badge bg-success px-3 py-2">Mesure de signaux à l’oscilloscope</span>
+                <span class="badge bg-success px-3 py-2">Utilisation de générateurs de signaux</span>
+                <span class="badge bg-secondary px-3 py-2">Lecture de schémas de transmission</span>
+
+                {# Supports de transmission #}
+                <span class="badge bg-primary px-3 py-2">Câblage cuivre (RJ45, panneaux de brassage)</span>
+                <span class="badge bg-primary px-3 py-2">Soudure de fibre optique</span>
+                <span class="badge bg-primary px-3 py-2">Contrôle de continuité &amp; atténuation</span>
+
+                {# Qualification & WiFi avec appareils #}
+                <span class="badge bg-info px-3 py-2">Qualification de câbles Ethernet (Fluke CableIQ)</span>
+                <span class="badge bg-info px-3 py-2">Audit de couverture WiFi (AirCheck G2)</span>
+
+                {# Analyse & communication #}
+                <span class="badge bg-warning text-dark px-3 py-2">Analyse de signaux (amplitude, fréquence, phase)</span>
+                <span class="badge bg-dark px-3 py-2">Rédaction de comptes rendus techniques</span>
             </div>
         </div>
     </section>
@@ -53,11 +77,11 @@
                         style="border-radius: 20px 20px 0 0; height: 200px; object-fit: cover;">
 
                     <div class="card-body">
-                        <h4 class="fw-bold">Projet 2</h4>
+                        <h4 class="fw-bold">Audit WiFi</h4>
                         <p class="text-muted">Catégorie / Technologie</p>
                         <p>Description du projet.</p>
 
-                        <a href="#" class="btn btn-info w-100">
+                        <a href="{{path('projetc1')}}" class="btn btn-info w-100">
                             Voir le projet →
                         </a>
                     </div>

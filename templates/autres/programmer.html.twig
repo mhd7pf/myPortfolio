@@ -10,9 +10,13 @@
 
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Définition</h3>
-            <p class="mb-0">
-                Ici tu mets la définition officielle de la compétence, ce qu’elle représente,
-                son importance, et en quoi elle est essentielle dans les métiers du numérique.
+            <p class="fs-5 mb-0">
+                La compétence Programmer désigne la capacité à concevoir et développer des scripts, applications ou automatismes qui exploitent les réseaux et les services de communication, 
+                par exemple pour configurer des équipements, superviser des infrastructures ou interagir avec des objets connectés. 
+                Elle inclut l’usage de langages de programmation et de scripts adaptés (par exemple Python, scripts réseau, API), 
+                la compréhension des protocoles et l’intégration de services pour répondre à un besoin fonctionnel précis. 
+                Dans les métiers du numérique, cette compétence devient centrale pour automatiser les tâches d’administration, 
+                développer des services innovants et rendre les réseaux plus intelligents et plus adaptables aux nouveaux usages
             </p>
         </div>
     </section>
@@ -20,10 +24,45 @@
     <section class="container py-5">
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Ce que j’ai acquis</h3>
-            <p>
-                Ici tu expliques ce que tu as appris par rapport à cette compétence :
-                connaissances techniques, procédures, outils administrés, etc.
+            <p class="fs-5">
+                Pour cette compétence (Créer des outils et applications informatiques pour les RT) , j'ai consolidé les bases de la programmation en Python et en C : je sais analyser un problème, 
+                proposer un algorithme, l'implémenter en code et le testeur en corrigeant les erreurs de logique ou de syntaxe jusqu'à obtenir un programme fonctionnel. 
+                Je suis capable de manipuler les structures de contrôle (conditions, boucles), les fonctions, les tableaux et les structures de données simples pour automatiser des traitements 
+                et résoudre des problèmes concrets. <br><br>
+                J'ai également appris à structurer une application Web avec Symfony en utilisant l'architecture MVC (Model-View-Controller), à organiser les routes, les contrôleurs et les vues, 
+                et à exploiter les modèles pour générer des pages adaptées au besoin. Cette expérience m'a permis de comprendre comment relier la logique métier, 
+                la gestion des données et l'interface utilisateur dans un même projet Web. <br><br>
+                Enfin, j'ai développé des compétences en traitement de données et en mise en valeur des résultats : 
+                j'analyse des fichiers de données issus d'un contexte réseau, j'écris un programme qui filtre et extrait automatiquement les informations importantes (adresses, dates, événements, anomalies…) 
+                et je présente ces résultats de façon structurée dans une page Web ou dans mon portfolio, en les montrant clairement à l'écrit et à l'oral. Les cours d'anglais et de communication m'aident 
+                à formuler ces explications de manière précise et professionnelle, que ce soit dans la documentation ou lors d'une présentation.
             </p>
+        </div>
+    </section>
+    <section class="container py-5">
+        <div class="card shadow p-4 border-0">
+            <h3 class="fw-bold mb-3">Mes skills liés à cette compétence</h3>
+
+            <div class="d-flex flex-wrap gap-2 fs-5">
+                {# Algorithmique & code #}
+                <span class="badge bg-success px-3 py-2">Analyse d’un problème et rédaction d’un algorithme</span>
+                <span class="badge bg-success px-3 py-2">Programmation en Python</span>
+                <span class="badge bg-success px-3 py-2">Programmation en C</span>
+
+                {# Développement Web #}
+                <span class="badge bg-primary px-3 py-2">Développement Web avec Symfony (MVC)</span>
+                <span class="badge bg-primary px-3 py-2">Conception et évolution d’un e-portfolio</span>
+
+                {# Données & résultats #}
+                <span class="badge bg-info px-3 py-2">Analyse de fichiers de données réseau</span>
+                <span class="badge bg-info px-3 py-2">Programmes d’extraction automatique d’informations importantes</span>
+                <span class="badge bg-info px-3 py-2">Présentation structurée des résultats dans une page Web / portfolio</span>
+
+                {# Méthodes de travail & communication #}
+                <span class="badge bg-warning text-dark px-3 py-2">Travail en mode projet (organisation et découpage des tâches)</span>
+                <span class="badge bg-warning text-dark px-3 py-2">Versionning du code avec Git / GitHub</span>
+                <span class="badge bg-dark px-3 py-2">Rédaction de documentation technique claire (FR / EN)</span>
+            </div>
         </div>
     </section>
 
@@ -44,7 +83,7 @@
                         <p class="text-muted">Catégorie / Technologie</p>
                         <p>Description du projet.</p>
 
-                        <a href="#" class="btn btn-info w-100">
+                        <a href="{{path('projetc1')}}" class="btn btn-info w-100">
                             Voir le projet →
                         </a>
                     </div>
