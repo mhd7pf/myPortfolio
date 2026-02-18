@@ -62,17 +62,27 @@ final class HomeController extends AbstractController
         return $this->render('autres/projets/projeta1.html.twig');
     }
 
-        #[Route('/audit-wifi', name: 'projetc1')]
+    #[Route('/audit-wifi', name: 'projetc1')]
     public function projetc1(): Response
     {
         return $this->render('autres/projets/projetc1.html.twig');
     }
 
-        #[Route('/fractale', name: 'projetp1')]
+    #[Route('/fractale', name: 'projetp1')]
     public function projetp1(): Response
     {
         return $this->render('autres/projets/projetp1.html.twig');
     }
     
+    #[Route('/sae102', name: 'projeta2')]
+    public function projeta2(): Response
+    {
+        return $this->render('autres/projets/projeta2.html.twig');
+    }
+    #[Route('/sae103', name: 'projetp2')]
+    public function projetp2(): Response
+    {
+        return $this->render('autres/projets/projetp2.html.twig');
+    }
 
 }

@@ -1,0 +1,251 @@
+{# templates/projet/projet_analyse_traff ic.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Outil d’analyse de trafic réseau{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .timeline {
+            position: relative;
+            margin-left: 0.5rem;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0,0,0,0.08);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 3px;
+            top: 0.8rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13,110,253,0.15);
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+
+    <h1 class="fw-bold mb-4">Outil d’analyse automatique de trafic réseau</h1>
+    <p class="text-muted mb-5">
+        Développement d’un pipeline Python / Excel / Python permettant de transformer un
+        fichier tcpdump brut en rapport Markdown structuré, avec détection automatique
+        de scans de ports, attaques DoS et connexions SSH sensibles.
+    </p>
+
+    <div class="card shadow-lg border-0 mb-5 p-4" style="border-radius: 20px;">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+                <h2 class="fw-bold h4 mb-1">Programmer · Analyse de logs réseau</h2>
+                <p class="text-muted mb-2">
+                    Python · Excel VBA · Markdown
+                </p>
+                <p class="mb-3">
+                    Le projet automatise l’analyse d’un fichier tcpdump : extraction en CSV avec Python,
+                    classification des paquets et génération de graphiques via des macros Excel, puis
+                    création d’un rapport Markdown prêt à être partagé avec l’équipe réseau.
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="/images/projets/sae105/sae105.png"
+                     alt="Schéma de l’outil d’analyse de trafic réseau"
+                     class="img-fluid rounded-4 shadow-sm"
+                     style="max-height: 180px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+
+    <section class="mb-5">
+        <h3 class="fw-bold h5 mb-3">Étapes du projet</h3>
+
+        <div class="timeline">
+
+            {# 1. Objectif et prérequis #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">1. Objectif et prérequis</h4>
+                    <p class="mb-2">
+                        L’outil vise à détecter automatiquement trois types d’activités anormales dans un
+                        fichier tcpdump : scans de ports, attaques par déni de service (DoS) et connexions
+                        SSH sensibles vers un serveur d’administration.
+                    </p>
+                    <p class="mb-0">
+                        Il repose sur Python 3.x (avec les bibliothèques <code>pandas</code> et
+                        <code>openpyxl</code>) et sur un classeur Excel avec macros, exécuté dans une
+                        structure de projet standardisée (<code>TRAITERLESDONNEES/</code> avec
+                        dossiers <code>data/</code> et <code>src/</code>).
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Capture de cette étape :</p>
+                        <img src="/images/projets/analyse_traff ic_etape1_structure.png"
+                             class="img-fluid rounded border"
+                             alt="Structure du projet TRAITERLESDONNEES">
+                    </div>
+                </div>
+            </div>
+
+            {# 2. Extraction CSV depuis tcpdump (Python) #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">2. Extraction CSV depuis le fichier tcpdump</h4>
+                    <p class="mb-2">
+                        Le script Python <code>extractDump.py</code> lit le fichier brut
+                        <code>data/DumpFile.txt</code>, ouvre une interface graphique pour choisir le
+                        fichier de logs puis produit <code>data/logs_extraits.csv</code>.
+                    </p>
+                    <p class="mb-0">
+                        Le CSV contient les champs essentiels pour l’analyse : timestamp (<code>TIME</code>),
+                        adresses source et destination, port de destination, flags TCP et taille du
+                        paquet. Ces colonnes servent de base à toutes les détections ultérieures.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Capture de cette étape :</p>
+                        <img src="/images/projets/analyse_traff ic_etape2_csv.png"
+                             class="img-fluid rounded border"
+                             alt="Interface d’extraction et aperçu du CSV généré">
+                    </div>
+                </div>
+            </div>
+
+            {# 3. Analyse dans Excel (VBA) #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">3. Classification des paquets avec Excel et VBA</h4>
+                    <p class="mb-2">
+                        Le fichier <code>logs_extraits.csv</code> est importé dans le classeur
+                        <code>logs_extraits.xlsm</code>, puis une macro VBA
+                        <code>Analyse_Reseau_Complet_Clean</code> est exécutée pour filtrer et classer
+                        les paquets.
+                    </p>
+                    <p class="mb-0">
+                        La macro crée plusieurs onglets : <em>Onglet_PortScan</em>, <em>Onglet_DoS</em>,
+                        <em>Onglet_SSH_Sensible</em>, un onglet <em>Synthese</em> avec les totaux par type
+                        d’attaque et <em>Graphiques</em> contenant les diagrammes de répartition.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Captures de cette étape :</p>
+                        <img src="/images/projets/analyse_traff ic_etape3_excel_logs.png"
+                             class="img-fluid rounded border mb-2"
+                             alt="Feuille Excel logs_extraits avec les colonnes TIME, SOURCE, DESTINATION, PORT, FLAGS, LENGTH">
+                        <img src="/images/projets/analyse_traff ic_etape3_onglets.png"
+                             class="img-fluid rounded border"
+                             alt="Onglets PortScan, DoS, SSH_Sensible et Synthese dans Excel">
+                    </div>
+                </div>
+            </div>
+
+            {# 4. Génération et export des graphiques #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">4. Génération et export des graphiques</h4>
+                    <p class="mb-2">
+                        À partir de la feuille <em>Graphiques</em>, trois diagrammes sont produits : nombre
+                        d’attaques par type, répartition des ports scannés et volume des paquets DoS
+                        dans le temps.
+                    </p>
+                    <p class="mb-0">
+                        Chaque graphique est exporté manuellement en PNG dans le dossier
+                        <code>data/</code> sous les noms <code>graph_nb_attaques.png</code>,
+                        <code>graph_portscan_ports.png</code> et <code>graph_dos_volume.png</code>,
+                        pour être réutilisé dans le rapport Markdown.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Captures de cette étape :</p>
+                        <img src="/images/projets/analyse_traff ic_etape4_graphs.png"
+                             class="img-fluid rounded border"
+                             alt="Feuille Graphiques avec les diagrammes d’attaques">
+                    </div>
+                </div>
+            </div>
+
+            {# 5. Génération du rapport Markdown #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">5. Génération du rapport Markdown</h4>
+                    <p class="mb-2">
+                        Le script Python <code>rapportMd.py</code> lit les onglets Excel
+                        <em>Onglet_PortScan</em>, <em>Onglet_DoS</em> et <em>Onglet_SSH_Sensible</em>,
+                        calcule les totaux par type d’attaque et sélectionne des paquets représentatifs.
+                    </p>
+                    <p class="mb-0">
+                        Il crée ensuite le fichier <code>data/rapport_attaques.md</code> contenant un
+                        résumé global, des tableaux d’exemples pour chaque attaque et l’inclusion des
+                        images de graphiques, prêt à être publié sur GitHub ou intégré à une
+                        documentation technique.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Capture de cette étape :</p>
+                        <img src="/images/projets/analyse_traff ic_etape5_md.png"
+                             class="img-fluid rounded border"
+                             alt="Rapport Markdown généré avec sections Port scan, DoS et SSH_Sensible">
+                    </div>
+                </div>
+            </div>
+
+            {# 6. Interprétation et dépannage #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">6. Interprétation et dépannage</h4>
+                    <p class="mb-2">
+                        Le guide détaille comment reconnaître un port scan (séries de paquets SYN
+                        vers des ports consécutifs), une attaque DoS (pics de trafic concentrés dans le
+                        temps) et des connexions SSH sensibles (accès au serveur d’administration sur
+                        des ports non standards).
+                    </p>
+                    <p class="mb-0">
+                        Une section de dépannage recense les erreurs courantes (modules Python
+                        manquants, macros désactivées, fichiers non trouvés) et les solutions
+                        correspondantes, ce qui rend l’outil réutilisable par d’autres étudiants ou
+                        membres de l’équipe
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Capture de cette étape :</p>
+                        <img src="/images/projets/analyse_traff ic_etape6_troubleshooting.png"
+                             class="img-fluid rounded border"
+                             alt="Tableau de troubleshooting de l’outil">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="window.history.back()">
+                ← Retour à la page précédente
+            </button>
+        </div>
+    </section>
+
+</div>
+    <button id="backToTop" class="btn rounded-circle shadow-lg ms-auto">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+{% endblock %}

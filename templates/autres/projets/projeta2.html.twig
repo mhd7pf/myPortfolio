@@ -1,0 +1,262 @@
+{# templates/projet/projeta2.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}SAE 1.02 – S’initier aux réseaux{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .timeline {
+            position: relative;
+            margin-left: 0.5rem;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0,0,0,0.08);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 3px;
+            top: 0.8rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13,110,253,0.15);
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+
+    <h1 class="fw-bold mb-4">SAE 1.02 – S’initier aux réseaux informatiques</h1>
+    <p class="text-muted mb-5">
+        Étude, conception, simulation et mise en œuvre d’un réseau local d’entreprise à partir d’une
+        infrastructure existante peu documentée, avec analyse de trames, serveur TFTP et déploiement
+        sur équipements réels.
+    </p>
+
+    <div class="card shadow-lg border-0 mb-5 p-4" style="border-radius: 20px;">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+                <h2 class="fw-bold h4 mb-1">Administrer · Conception d’un LAN d’entreprise</h2>
+                <p class="text-muted mb-2">
+                    Compétence RT1 – Administrer les réseaux et l’Internet
+                </p>
+                <p class="mb-3">
+                    À partir d’un réseau existant, le projet consiste à analyser le trafic pour comprendre la
+                    topologie, mettre en place un serveur TFTP pour récupérer les configurations, concevoir un
+                    nouveau réseau avec VLAN et plan d’adressage sous Cisco Packet Tracer, puis déployer et
+                    tester la solution sur équipements réels.
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="/images/sae1021.png"
+                     alt="Schéma du réseau SAE 1.02"
+                     class="img-fluid rounded-4 shadow-sm"
+                     style="max-height: 180px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+
+    {# Étapes du projet = résumé du rapport #}
+    <section class="mb-5">
+        <h3 class="fw-bold h5 mb-3">Étapes du projet</h3>
+
+        <div class="timeline">
+
+            {# 1. Analyse des trames réseau #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">1. Analyse des trames réseau</h4>
+                    <p class="mb-2">
+                        Une capture issue d’un <code>tracert</code> a été analysée avec Wireshark pour comprendre le
+                        fonctionnement du réseau existant sans documentation, identifier les équipements et les
+                        chemins empruntés par les paquets.
+                    </p>
+                    <p class="mb-0">
+                        Les trames CDP ont permis de récupérer le VLAN natif, l’adresse IP de gestion et le port
+                        d’interconnexion des switches, tandis que les trames ARP et ICMP ont mis en évidence le rôle
+                        de la passerelle 11 et la connectivité vers le serveur TFTP 192.168.200.254.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Capture de cette étape :</p>
+                        <img src="/images/projets/sae102_etape1_trames.png"
+                             class="img-fluid rounded border"
+                             alt="Analyse des trames CDP, ARP et ICMP sous Wireshark">
+                    </div>
+                </div>
+            </div>
+
+            {# 2. Mise en place du serveur TFTP #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">2. Mise en place d’un serveur TFTP</h4>
+                    <p class="mb-2">
+                        Un serveur TFTP a été déployé sous Windows 11 avec l’application Tftpd64 afin de centraliser
+                        les configurations des switches Cisco pour analyse et sauvegarde.
+                    </p>
+                    <p class="mb-0">
+                        Après vérification de la connectivité par <code>ping</code>, l’onglet <em>Tftp Client</em> a été utilisé
+                        pour récupérer les fichiers de configuration : saisie de l’adresse IP du serveur dans
+                        <em>Host</em>, nom du fichier dans <em>Remote File</em>, chemin local dans <em>Local File</em>, puis
+                        lancement du transfert avec <em>Get</em>. Les logs Tftpd64 ont confirmé la bonne réception des
+                        fichiers.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Captures de cette étape :</p>
+                        <img src="/images/projets/sae102_etape2_ping_tftp.png"
+                             class="img-fluid rounded border mb-2"
+                             alt="Test de ping vers le serveur TFTP">
+                        <img src="/images/projets/sae102_etape2_tftpd64.png"
+                             class="img-fluid rounded border"
+                             alt="Récupération d’une configuration avec Tftpd64">
+                    </div>
+                </div>
+            </div>
+
+            {# 3. Conception et simulation sous Packet Tracer #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">3. Conception et simulation sous Cisco Packet Tracer</h4>
+                    <p class="mb-2">
+                        À partir du cahier des charges, trois nouveaux LAN ont été définis pour la production, les
+                        commerciaux et les ressources humaines, avec un dimensionnement adapté du nombre de
+                        postes et des contraintes de VLAN.
+                    </p>
+                    <p class="mb-0">
+                        Les VLAN 53, 54 et 55 ont été créés (Production, Commerciaux, RH) ainsi que le VLAN 150
+                        pour l’administration, chacun associé à un sous-réseau /24. Le switch d’accès SA a été
+                        configuré avec des plages de ports par service, des interfaces VLAN adressées et un lien trunk
+                        vers le switch S3 autorisant les VLAN 8, 53, 54, 55 et 150. Un routeur <em>router-on-a-stick</em>
+                        a été ajouté pour fournir un service DHCP centralisé.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Captures de cette étape :</p>
+                        <img src="/images/projets/sae102_etape3_topologie.png"
+                             class="img-fluid rounded border mb-2"
+                             alt="Topologie Packet Tracer de la SAE 1.02">
+                        <img src="/images/projets/sae102_etape3_dhcp.png"
+                             class="img-fluid rounded border"
+                             alt="Configuration du routeur DHCP router-on-a-stick">
+                    </div>
+                </div>
+            </div>
+
+            {# 4. Tests de la simulation #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">4. Tests et validation de la simulation</h4>
+                    <p class="mb-2">
+                        Plusieurs scénarios de tests ont été réalisés dans Packet Tracer : ping du PC d’administration
+                        vers le serveur TFTP, ping entre deux PCs du même VLAN et vérification de l’attribution
+                        automatique des adresses IP par le DHCP.
+                    </p>
+                    <p class="mb-0">
+                        Ces tests ont validé le routage entre VLAN, le bon fonctionnement du serveur TFTP simulé et
+                        la cohérence du plan d’adressage avant passage sur équipements réels.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Captures de cette étape :</p>
+                        <img src="/images/projets/sae102_etape4_ping.png"
+                             class="img-fluid rounded border mb-2"
+                             alt="Pings de validation dans la simulation">
+                        <img src="/images/projets/sae102_etape4_pools_dhcp.png"
+                             class="img-fluid rounded border"
+                             alt="Pools DHCP dans la simulation">
+                    </div>
+                </div>
+            </div>
+
+            {# 5. Réalisation et tests sur équipements réels #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">5. Réalisation et tests sur équipements réels</h4>
+                    <p class="mb-2">
+                        En salle de TP, la maquette a été reproduite avec un switch physique, trois PC et une machine
+                        virtuelle Ubuntu, en respectant la répartition des VLAN et la configuration du trunk vers le
+                        réseau existant.
+                    </p>
+                    <p class="mb-0">
+                        Le switch a été sécurisé avec SSH (génération de clés RSA, compte administrateur, lignes VTY
+                        en SSH uniquement), puis un serveur TFTP réel a permis de sauvegarder la configuration de
+                        l’équipement. Des tests de ping, de connexion SSH (via PuTTY) et de sauvegarde TFTP ont
+                        confirmé la cohérence entre la simulation et la mise en œuvre pratique.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Captures de cette étape :</p>
+                        <img src="/images/projets/sae102_etape5_ping_reel.png"
+                             class="img-fluid rounded border mb-2"
+                             alt="Pings entre PC Windows et Ubuntu sur le VLAN 53">
+                        <img src="/images/projets/sae102_etape5_ssh_tftp.png"
+                             class="img-fluid rounded border"
+                             alt="Connexion SSH et sauvegarde sur serveur TFTP réel">
+                    </div>
+                </div>
+            </div>
+
+            {# 6. Prise d’initiative et conclusion #}
+            <div class="timeline-step">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card border-0 shadow-sm p-3">
+                    <h4 class="h6 fw-bold mb-2">6. Prise d’initiative et synthèse</h4>
+                    <p class="mb-2">
+                        En prise d’initiative, un PC a été configuré comme serveur DHCP grâce à Tftpd64 pour le VLAN 53,
+                        offrant un second scénario d’attribution d’adresses et renforçant la compréhension des services
+                        réseau.
+                    </p>
+                    <p class="mb-0">
+                        Cette SAE a permis de développer une vision globale de l’administration de réseau : analyse de
+                        trafic, récupération de configurations, conception de topologie, simulation, déploiement réel,
+                        sécurisation en SSH et sauvegarde centralisée.
+                    </p>
+
+                    <div class="mt-3">
+                        <p class="text-muted small mb-1">Captures de cette étape :</p>
+                        <img src="/images/projets/sae102_etape6_dhcp_pc.png"
+                             class="img-fluid rounded border mb-2"
+                             alt="PC configuré comme serveur DHCP">
+                        <img src="/images/projets/sae102_etape6_pcs_connectes.png"
+                             class="img-fluid rounded border"
+                             alt="PCs connectés et baux DHCP">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="window.history.back()">
+                ← Retour à la page précédente
+            </button>
+        </div>
+    </section>
+    <button id="backToTop" class="btn rounded-circle shadow-lg ms-auto">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+</div>
+{% endblock %}
