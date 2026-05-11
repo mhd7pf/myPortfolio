@@ -68,33 +68,34 @@
         <h2 class="fw-bold text-center mb-5">Projets liés à cette compétence</h2>
 
         <div class="row g-4 justify-content-center">
-
             <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
                 <div class="card shadow border-0 h-100" style="border-radius: 20px; width: 100%;">
-                    
                     <img src="{{ asset('images/audit.png') }}"
                         class="card-img-top"
                         style="border-radius: 20px 20px 0 0; height: 200px; object-fit: cover;">
-
                     <div class="card-body">
-                        <h4 class="fw-bold">Audit WiFi</h4>
-                        <p class="text-muted">Catégorie / Technologie</p>
-                        <p>Description du projet.</p>
-
+                        <h4 class="fw-bold">SAE 1.03 – Audit & Infrastructure</h4>
+                        <p class="text-muted">WiFi AirCheck G2 / Recette Cuivre / Devis</p>
+                        <p>Audit complet de l'infrastructure de l'IUT de Roanne : mesures de couverture WiFi, certification de câblage cuivre et chiffrage matériel pour une salle serveur.</p>
                         <a href="{{path('projetc1')}}" class="btn btn-info w-100">
                             Voir le projet →
                         </a>
                     </div>
                 </div>
             </div>
-
         </div>
-
+        <div class="text-center mt-4">
+            <button type="button"
+                class="btn btn-outline-secondary"
+                onclick="window.history.back()">
+                ← Retour à la page précédente
+            </button>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <button id="backToTop" class="btn rounded-circle shadow-lg">
+                <i class="bi bi-arrow-up"></i>
+            </button>
+        </div>
     </section>
-
-
-    <button id="backToTop" class="btn rounded-circle shadow-lg ms-auto">
-        <i class="bi bi-arrow-up"></i>
-    </button>
 
 {% endblock %}

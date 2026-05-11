@@ -1,0 +1,171 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SAÉ 2.1 – Construire un réseau informatique{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .timeline {
+            position: relative;
+            margin-left: 0.5rem;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0,0,0,0.08);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 2rem; /* Augmenté pour aérer le texte */
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 3px;
+            top: 0.8rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0d6efd; 
+            box-shadow: 0 0 0 4px rgba(13,110,253,0.15);
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+
+        <h1 class="fw-bold mb-4">SAÉ 2.1 – Construire un réseau informatique pour une petite structure</h1>
+        <p class="text-muted mb-5">
+            Conception, simulation et mise en œuvre d'une infrastructure réseau inter-sites haute disponibilité reliant les campus Carnot, Métare, Roanne et Tréfilerie de l'Université Jean Monnet.
+        </p>
+
+        <div class="card shadow-lg border-0 mb-5 p-4" style="border-radius: 20px;">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold h4 mb-1">Administrer · Architecture Multi-sites & Routage Dynamique</h2>
+                    <p class="text-muted mb-2">
+                        Compétence RT2 – Administrer les actifs réseaux et l’Internet
+                    </p>
+                    <p class="mb-3">
+                        L'objectif était d'interconnecter quatre sites géographiques avec une gestion optimisée de l'adressage VLSM, du routage dynamique RIP v2 et de la sécurité via ACL. Le projet intègre également des protocoles de haute disponibilité comme EtherChannel pour garantir la continuité de service entre les bâtiments.
+                    </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="/images/projets/sae201/sae21.png" 
+                        alt="Topologie globale Packet Tracer" 
+                        class="img-fluid rounded-4 shadow-sm"
+                        style="max-height: 180px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+
+        <section class="mb-5">
+            <h3 class="fw-bold h5 mb-3">Détails techniques et étapes clés</h3>
+
+            <div class="timeline">
+
+                {# 1. Ingénierie de l'adressage VLSM #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">1. Ingénierie de l'adressage (VLSM)</h4>
+                        <p class="mb-2">
+                            À partir de la plage <code>172.16.0.0/16</code>, j'ai conçu un plan d'adressage optimisé pour 5 VLANs par site (Administration, Enseignants, Services, Etudiants, WiFi). L'utilisation du VLSM a permis de dimensionner chaque sous-réseau selon le nombre précis de machines par campus, évitant ainsi le gaspillage d'adresses IP tout en prévoyant une croissance future de 20%.
+                        </p>
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture : Tableau VLSM et calculs d'adressage</p>
+                            <img src="/images/projets/sae201/vlsm.png" 
+                                class="img-fluid rounded border" 
+                                alt="Tableau d'adressage VLSM">
+                        </div>
+                    </div>
+                </div>
+
+                {# 2. Routage Dynamique RIP v2 #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">2. Routage Dynamique & Interconnexion</h4>
+                        <p class="mb-2">
+                            Configuration du protocole <strong>RIP v2</strong> sur l'ensemble des routeurs (R1 à R4 et RFAI) pour assurer la convergence automatique des routes. Cette solution garantit que chaque site peut communiquer avec les autres de manière dynamique. En cas de panne d'un lien physique, le protocole recalcule automatiquement le meilleur chemin sans intervention humaine.
+                        </p>
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture : Configuration RIP et table de routage</p>
+                            <img src="/images/projets/sae21/routage_rip.png" 
+                                class="img-fluid rounded border" 
+                                alt="Table de routage dynamique RIP v2">
+                        </div>
+                    </div>
+                </div>
+
+                {# 3. NAT et Accès Internet #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">3. NAT Overload et Accès WAN</h4>
+                        <p class="mb-2">
+                            Mise en place du <strong>NAT Overload (PAT)</strong> sur le routeur central (RFAI). Ce mécanisme est essentiel pour permettre à l'ensemble des hôtes des réseaux privés de partager une adresse publique unique <code>161.3.36.32/28</code> pour accéder à l'Internet. J'ai configuré les "inside" et "outside" interfaces pour assurer la translation correcte des ports.
+                        </p>
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture : Commandes de configuration NAT et vérification 'show ip nat translations'</p>
+                            <img src="/images/projets/sae21/config_nat.png" 
+                                class="img-fluid rounded border" 
+                                alt="Configuration NAT Overload Cisco">
+                        </div>
+                    </div>
+                </div>
+
+                {# 4. Sécurité par ACL #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">4. Sécurisation des flux (ACL)</h4>
+                        <p class="mb-2">
+                            Implémentation de listes de contrôle d'accès (ACL) pour respecter le cahier des charges : protection stricte du VLAN 10 (Administration) qui est le seul autorisé à gérer les actifs, isolation du serveur TFTP pour les sauvegardes de configuration et filtrage des flux entrants depuis le WAN pour prévenir les intrusions.
+                        </p>
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture : Tests de ping (Success/Fail) validant les ACL</p>
+                            <img src="/images/projets/sae21/tests_acl.png" 
+                                class="img-fluid rounded border" 
+                                alt="Résultats des tests de sécurité ACL">
+                        </div>
+                    </div>
+                </div>
+
+                {# 5. Maquette physique et services #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">5. Validation sur maquette physique et services</h4>
+                        <p class="mb-2">
+                            Réalisation finale en salle TP avec déploiement sur commutateurs et routeurs réels. Cette étape a permis de confronter la simulation Packet Tracer à la réalité matérielle (câblage, latence, bugs réels). J'ai intégré des services Windows 11 avec <strong>Tftpd64</strong> pour centraliser les fichiers de configuration et <strong>Apache HTTPD</strong> pour simuler les serveurs web de l'université.
+                        </p>
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture : Photo de la maquette physique réalisée ou capture console de l'équipement réel</p>
+                            <img src="/images/projets/sae21/maquette_physique.png" 
+                                class="img-fluid rounded border" 
+                                alt="Maquette physique en salle TP">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-4">
+                    <a href="{{ asset('documents/rapport_SAE21.pdf') }}" class="btn btn-outline-secondary btn-sm" target="blank_"><i class="bi bi-file-earmark-pdf"></i> Consulter le rapport complet</a> <br>
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        onclick="window.history.back()">
+                    ← Retour à la page précédente
+                </button>
+            </div>
+        </section>
+        <button id="backToTop" class="btn rounded-circle shadow-lg ms-auto">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </div>
+{% endblock %}

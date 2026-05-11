@@ -84,5 +84,10 @@ final class HomeController extends AbstractController
     {
         return $this->render('autres/projets/projetp2.html.twig');
     }
-
+    #[Route('/sae201', name: 'projeta3')]
+    public function projeta3(): Response
+    {
+        return $this->render('autres/projets/projeta3.html.twig');
+    }
+    
 }

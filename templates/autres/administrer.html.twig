@@ -111,14 +111,42 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                <div class="card shadow border-0 h-100" style="border-radius: 20px; width: 100%;">
 
+                    <img src="images/projets/sae201/sae21.png"
+                        class="card-img-top"
+                        style="border-radius: 20px 20px 0 0; height: 200px; object-fit: cover;"
+                        alt="Schéma du réseau SAE21">
 
+                    <div class="card-body">
+                        <h4 class="fw-bold">SAE 2.1 – Administrer un système et un réseau</h4>
+                        <p class="text-muted">Administration système et réseau / Services, sécurité, validation</p>
+                        <p>
+                            Mise en place d’une infrastructure système et réseau avec configuration des services,
+                            organisation du réseau, sécurisation des accès et validation du fonctionnement global
+                            dans un environnement de test.
+                        </p>
+
+                        <a href="{{ path('projeta3') }}" class="btn btn-info w-100">
+                            Voir le projet →
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        <div class="text-center mt-4">
+            <button type="button"
+                class="btn btn-outline-secondary"
+                onclick="window.history.back()">
+                ← Retour à la page précédente
+            </button>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <button id="backToTop" class="btn rounded-circle shadow-lg">
+                <i class="bi bi-arrow-up"></i>
+            </button>
+        </div>
     </section>
-
-    <button id="backToTop" class="btn rounded-circle shadow-lg ms-auto">
-        <i class="bi bi-arrow-up"></i>
-    </button>
 
 {% endblock %}

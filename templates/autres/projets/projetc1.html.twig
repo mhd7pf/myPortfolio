@@ -1,1 +1,170 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}SAÉ 1.03 – Infrastructures et transmissions{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .timeline {
+            position: relative;
+            margin-left: 0.5rem;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0,0,0,0.08);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 3px;
+            top: 0.8rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13,110,253,0.15);
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+
+        <h1 class="fw-bold mb-4">SAE 1.03 – Découvrir un dispositif de transmission</h1>
+        <p class="text-muted mb-5">
+            Étude complète d'une infrastructure réseau locale : de la planification budgétaire d'une salle serveur à l'audit de couverture WiFi, en passant par la certification de liens physiques cuivre.
+        </p>
+
+        <div class="card shadow-lg border-0 mb-5 p-4" style="border-radius: 20px;">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold h4 mb-1">Connecter - Étude d'Infrastructure & Audit</h2>
+                    <p class="text-muted mb-2">
+                        Compétence RT1 – Connecter les entreprises et les usagers
+                    </p>
+                    <p class="mb-3">
+                        Ce projet transverse m'a permis de comprendre les trois couches de la connectivité : la planification (choix matériel et devis), la validation physique (câblage cuivre) et l'audit de service (couverture sans-fil). J'ai travaillé sur des problématiques concrètes au sein de l'IUT de Roanne pour optimiser les performances réseau existantes.
+                    </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="/images/projets/sae103/audit.png" 
+                        alt="Audit WiFi AirCheck G2" 
+                        class="img-fluid rounded-4 shadow-sm"
+                        style="max-height: 180px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+
+        <section class="mb-5">
+            <h3 class="fw-bold h5 mb-3">Réalisations techniques détaillées</h3>
+
+            <div class="timeline">
+
+                {# 1. Devis Matériel #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">1. Devis (Salle G007 - IUT Roanne)</h4>
+                        <p class="mb-2">
+                            Élaboration d'une solution technique complète pour l'équipement d'une salle réseau. J'ai sélectionné le matériel selon cahier des charges (baies, cordons, ...) en tenant compte des contraintes de performance et de budget, tout en estimant les coûts de main-d'œuvre pour l'installation.
+                        </p>
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture : Extrait du devis chiffré et liste du matériel</p>
+                            <p class="mb-0">
+                                <em>Estimation du matériel</em>
+                            </p>
+                            <img src="/images/projets/sae103/list1.png" 
+                                class="img-fluid rounded border" 
+                                alt="Tableau de devis matériel">
+                            <img src="/images/projets/sae103/list2.png" 
+                                class="img-fluid rounded border" 
+                                alt="Tableau de devis matériel">
+                            <p class="mb-0">
+                                <em>Estimation de la main-d’œuvre</em>
+                            </p>
+                            <img src="/images/projets/sae103/list3.png" 
+                                class="img-fluid rounded border" 
+                                alt="Tableau de devis matériel">
+                        </div>
+                    </div>
+                </div>
+
+                {# 2. Qualification Câblage #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">2. Qualification du câblage cuivre</h4>
+                        <p class="mb-2">
+                            Utilisation d'un certificateur de câblage (Cable IQ) pour tester la conformité des liens réseaux. J'ai analysé les résultats des tests (longueur, schéma de câblage, affaiblissement) pour m'assurer que l'infrastructure physique supporte les débits Gigabit attendus sans erreurs de transmission.
+                        </p>
+                        <div class="mt-3">
+                            <p class="text-muted small mb-1">Capture : Rapport de test de certification cuivre</p>
+                            <img src="/images/projets/sae103/qualif.png" 
+                                class="img-fluid rounded border" 
+                                alt="Résultat test certification">
+                        </div>
+                    </div>
+                </div>
+
+                {# 3. Audit WiFi #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">3. Audit de couverture WiFi (AirCheck G2)</h4>
+                        <p class="mb-2">
+                            Mesure de la qualité du signal sur le campus. À l'aide de l'outil <strong>AirCheck G2</strong>, j'ai analysé le SNR (Signal-to-Noise Ratio), les niveaux de signal (dBm) et l'occupation des canaux sur les bandes 2,4 GHz et 5 GHz pour identifier les zones d'ombre.
+                        </p>
+                        <div class="mt-3">
+                            <p class="text-muted small mb-2">Captures : Analyse spectrale et Tableau récapitulatif</p>
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <img src="/images/projets/sae103/audit_wifi.jpg" 
+                                        class="img-fluid rounded border shadow-sm" 
+                                        alt="Analyse de couverture WiFi"
+                                        style="height: 700px; width: 100%; object-fit: cover;">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="/images/projets/sae103/recap.png" 
+                                        class="img-fluid rounded border shadow-sm" 
+                                        alt="Tableau recapitulatif"
+                                        style="height: 100%; width: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {# 4. Analyse et Conclusion #}
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card border-0 shadow-sm p-3">
+                        <h4 class="h6 fw-bold mb-2">4. Diagnostic et préconisations</h4>
+                        <p class="mb-0">
+                            Rédaction d'un bilan technique soulignant les points forts (bonne répartition des canaux 1/6/11) et les axes d'amélioration (remplacement des points d'accès limités) pour garantir une expérience utilisateur optimale sur le campus.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-4">
+                    <a href="{{ asset('documents/rapport_SAE103.pdf') }}" class="btn btn-outline-secondary btn-sm" target="blank_"><i class="bi bi-file-earmark-pdf"></i> Consulter le rapport complet</a> <br>
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        onclick="window.history.back()">
+                    ← Retour à la page précédente
+                </button>
+        </section>
+        <button id="backToTop" class="btn rounded-circle shadow-lg ms-auto">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </div>
+{% endblock %}

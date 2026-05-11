@@ -93,7 +93,7 @@
 
                     <div class="mt-3">
                         <p class="text-muted small mb-1">Capture de cette étape :</p>
-                        <img src="/images/projets/analyse_traff ic_etape1_structure.png"
+                        <img src="/images/projets/sae105/struct.png"
                              class="img-fluid rounded border"
                              alt="Structure du projet TRAITERLESDONNEES">
                     </div>
@@ -118,7 +118,7 @@
 
                     <div class="mt-3">
                         <p class="text-muted small mb-1">Capture de cette étape :</p>
-                        <img src="/images/projets/analyse_traff ic_etape2_csv.png"
+                        <img src="/images/projets/sae105/extract.png"
                              class="img-fluid rounded border"
                              alt="Interface d’extraction et aperçu du CSV généré">
                     </div>
@@ -144,12 +144,9 @@
 
                     <div class="mt-3">
                         <p class="text-muted small mb-1">Captures de cette étape :</p>
-                        <img src="/images/projets/analyse_traff ic_etape3_excel_logs.png"
+                        <img src="/images/projets/sae105/exel.png"
                              class="img-fluid rounded border mb-2"
                              alt="Feuille Excel logs_extraits avec les colonnes TIME, SOURCE, DESTINATION, PORT, FLAGS, LENGTH">
-                        <img src="/images/projets/analyse_traff ic_etape3_onglets.png"
-                             class="img-fluid rounded border"
-                             alt="Onglets PortScan, DoS, SSH_Sensible et Synthese dans Excel">
                     </div>
                 </div>
             </div>
@@ -166,14 +163,16 @@
                     </p>
                     <p class="mb-0">
                         Chaque graphique est exporté manuellement en PNG dans le dossier
-                        <code>data/</code> sous les noms <code>graph_nb_attaques.png</code>,
-                        <code>graph_portscan_ports.png</code> et <code>graph_dos_volume.png</code>,
+                        <code>data/</code> sous les noms <code>graphb.png</code> et <code>graphc.png</code>,
                         pour être réutilisé dans le rapport Markdown.
                     </p>
 
                     <div class="mt-3">
                         <p class="text-muted small mb-1">Captures de cette étape :</p>
-                        <img src="/images/projets/analyse_traff ic_etape4_graphs.png"
+                        <img src="/images/projets/sae105/graphb.png"
+                             class="img-fluid rounded border"
+                             alt="Feuille Graphiques avec les diagrammes d’attaques">
+                        <img src="/images/projets/sae105/graphc.png"
                              class="img-fluid rounded border"
                              alt="Feuille Graphiques avec les diagrammes d’attaques">
                     </div>
@@ -199,9 +198,11 @@
 
                     <div class="mt-3">
                         <p class="text-muted small mb-1">Capture de cette étape :</p>
-                        <img src="/images/projets/analyse_traff ic_etape5_md.png"
-                             class="img-fluid rounded border"
-                             alt="Rapport Markdown généré avec sections Port scan, DoS et SSH_Sensible">
+                        <video class="img-fluid shadow rounded-2"
+                            autoplay loop muted playsinline>
+                            <source src="/images/projets/sae105/mark.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la vidéo.
+                        </video>
                     </div>
                 </div>
             </div>
@@ -226,16 +227,16 @@
 
                     <div class="mt-3">
                         <p class="text-muted small mb-1">Capture de cette étape :</p>
-                        <img src="/images/projets/analyse_traff ic_etape6_troubleshooting.png"
+                        <img src="/images/projets/sae105/tb.png"
                              class="img-fluid rounded border"
                              alt="Tableau de troubleshooting de l’outil">
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="text-center mt-4">
+                <a href="{{ asset('documents/notice_d_utilisation.pdf') }}" class="btn btn-outline-secondary btn-sm" target="blank_"><i class="bi bi-file-earmark-pdf"></i> Consulter le rapport complet</a> <br>
             <button type="button"
                     class="btn btn-outline-secondary"
                     onclick="window.history.back()">
