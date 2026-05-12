@@ -24,16 +24,11 @@
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Ce que j’ai acquis</h3>
             <p class="fs-5">
-                Pour cette compétence (Connecter les entreprises et les usagers), j'ai appris à mesurer et interpréter des signaux électriques à l'oscilloscope, 
-                à utiliser les générateurs et bancs de mesure pour vérifier la qualité d'une liaison, et à lire des schémas de transmission. 
-                J'ai développé un bon niveau dans le déploiement de supports de transmission en réalisant du câblage cuivre et des soudures de fibre optique, en contrôlant la continuité, 
-                l'atténuation et le respect des normes de câblage. Les ressources de mathématiques des transmissions (R1.14) et de traitement de signaux (R1.15) m'ont également permis de 
-                manipuler des fonctions et d'analyser des graphiques de signaux pour en extraire des informations utiles (amplitude, phase, fréquence), 
-                ce qui renforce ma capacité à comprendre et caractériser un système de transmission. J'ai enfin acquis des compétences pour qualifier
-                une infrastructure avec des outils de test (analyse du câblage cuivre, audit WiFi) et pour restituer ces résultats de manière claire dans un rapport technique, en m'appuyant 
-                sur les enseignements d'anglais et de communication. <br><br>
-                Au final, je suis désormais capable de mettre en place et de diagnostiquer des liaisons de transmission simples, d'en interpréter les mesures et d'en rendre compte de manière 
-                structurée, ce qui montre un bon niveau d'acquisition de la compétence Connecter au semestre 1.
+                Au premier semestre, j'ai appris à déployer les supports physiques comme le <strong>câblage cuivre</strong> et la <strong>fibre optique</strong> (soudure et test de continuité). Mais au-delà du câble, j'ai étudié les <strong>mathématiques des transmissions</strong> et le traitement du signal pour comprendre comment extraire des informations (amplitude, phase, fréquence) d'un graphique. J'ai utilisé des outils professionnels comme le Fluke ou l'AirCheck pour valider la qualité de ces liaisons. <br><br>
+
+                Au second semestre, je suis allé plus loin dans l'analyse avec l'étude théorique des <strong>systèmes de transmission</strong> et du <strong>codage de l'information</strong>. L'analyse mathématiques des signaux m'a permis de comprendre comment l'information est préparée avant d'être envoyée. En TP, j'ai utilisé des GBF, un oscilloscopes, un multimètre pour visualiser concrètement ces signaux et vérifier si la transmission réelle correspondait à la théorie. <br><br>
+
+                Enfin, je commence à mettre en pratique ces notions de filtrage et d'acquisition dans un projet de <strong>détection acoustique</strong>. L'idée est d'utiliser un micro pour capturer un son réel, puis d'utiliser le traitement du signal pour identifier une fréquence précise. Cela me permet de lier concrètement les mathématiques, l'électronique et l'informatique.
             </p>
         </div>
     </section>
@@ -43,23 +38,22 @@
             <h3 class="fw-bold mb-3">Mes skills liés à cette compétence</h3>
 
             <div class="d-flex flex-wrap gap-2 fs-5">
-                {# Mesure & signaux #}
-                <span class="badge bg-success px-3 py-2">Mesure de signaux à l’oscilloscope</span>
-                <span class="badge bg-success px-3 py-2">Utilisation de générateurs de signaux</span>
-                <span class="badge bg-secondary px-3 py-2">Lecture de schémas de transmission</span>
+                {# Mesure & Analyse de signaux #}
+                <span class="badge bg-success px-3 py-2">Analyse de signaux (Oscilloscope & GBF)</span>
+                <span class="badge bg-success px-3 py-2">Théorie des systèmes de transmission</span>
+                <span class="badge bg-warning text-dark px-3 py-2">Codage & Acquisition de l'information</span>
 
                 {# Supports de transmission #}
-                <span class="badge bg-primary px-3 py-2">Câblage cuivre (RJ45, panneaux de brassage)</span>
-                <span class="badge bg-primary px-3 py-2">Soudure de fibre optique</span>
-                <span class="badge bg-primary px-3 py-2">Contrôle de continuité &amp; atténuation</span>
+                <span class="badge bg-primary px-3 py-2">Câblage cuivre & Soudure Fibre Optique</span>
+                <span class="badge bg-primary px-3 py-2">Contrôle de continuité et d'atténuation</span>
 
-                {# Qualification & WiFi avec appareils #}
-                <span class="badge bg-info px-3 py-2">Qualification de câbles Ethernet (Fluke CableIQ)</span>
-                <span class="badge bg-info px-3 py-2">Audit de couverture WiFi (AirCheck G2)</span>
+                {# Qualification & Projets #}
+                <span class="badge bg-info px-3 py-2">Certification de liens (Fluke CableIQ)</span>
+                <span class="badge bg-info px-3 py-2">Audit WiFi (AirCheck G2)</span>
+                <span class="badge bg-dark px-3 py-2">Filtrage de signaux acoustiques (en cours)</span>
 
-                {# Analyse & communication #}
-                <span class="badge bg-warning text-dark px-3 py-2">Analyse de signaux (amplitude, fréquence, phase)</span>
-                <span class="badge bg-dark px-3 py-2">Rédaction de comptes rendus techniques</span>
+                {# Communication #}
+                <span class="badge bg-secondary px-3 py-2">Rédaction de comptes rendus techniques</span>
             </div>
         </div>
     </section>
@@ -70,7 +64,7 @@
         <div class="row g-4 justify-content-center">
             <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
                 <div class="card shadow border-0 h-100" style="border-radius: 20px; width: 100%;">
-                    <img src="{{ asset('images/audit.png') }}"
+                    <img src="/images/projets/sae103/audit.png"
                         class="card-img-top"
                         style="border-radius: 20px 20px 0 0; height: 200px; object-fit: cover;">
                     <div class="card-body">

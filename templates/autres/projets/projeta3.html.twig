@@ -56,7 +56,7 @@
                     </p>
                 </div>
                 <div class="col-md-4 text-center">
-                    <img src="/images/projets/sae201/sae21.png" 
+                    <img src="/images/projets/sae201/topo.png" 
                         alt="Topologie globale Packet Tracer" 
                         class="img-fluid rounded-4 shadow-sm"
                         style="max-height: 180px; object-fit: cover;">
@@ -75,13 +75,16 @@
                     <div class="timeline-content card border-0 shadow-sm p-3">
                         <h4 class="h6 fw-bold mb-2">1. Ingénierie de l'adressage (VLSM)</h4>
                         <p class="mb-2">
-                            À partir de la plage <code>172.16.0.0/16</code>, j'ai conçu un plan d'adressage optimisé pour 5 VLANs par site (Administration, Enseignants, Services, Etudiants, WiFi). L'utilisation du VLSM a permis de dimensionner chaque sous-réseau selon le nombre précis de machines par campus, évitant ainsi le gaspillage d'adresses IP tout en prévoyant une croissance future de 20%.
+                            À partir de la plage <code>172.16.0.0/16</code>, j'ai conçu un plan d'adressage optimisé pour 5 VLANs par site (Administration, Enseignants, Services, Etudiants, WiFi). L'utilisation du VLSM a permis de dimensionner chaque sous-réseau selon le nombre précis de machines par campus, évitant ainsi le gaspillage d'adresses IP tout en prévoyant une croissance future.
                         </p>
                         <div class="mt-3">
-                            <p class="text-muted small mb-1">Capture : Tableau VLSM et calculs d'adressage</p>
-                            <img src="/images/projets/sae201/vlsm.png" 
+                            <p class="text-muted small mb-1">Capture : Tableau VLSM et verifications calculs d'adressage</p>
+                            <img src="/images/projets/sae201/vlsm.png"
                                 class="img-fluid rounded border" 
                                 alt="Tableau d'adressage VLSM">
+                            <img src="/images/projets/sae201/topo.png"  
+                                class="img-fluid rounded border" 
+                                alt="verifications calculs d'adressage">
                         </div>
                     </div>
                 </div>
@@ -96,7 +99,10 @@
                         </p>
                         <div class="mt-3">
                             <p class="text-muted small mb-1">Capture : Configuration RIP et table de routage</p>
-                            <img src="/images/projets/sae21/routage_rip.png" 
+                            <img src="/images/projets/sae201/crip.png" 
+                                class="img-fluid rounded border" 
+                                alt="config routage dynamique RIP v2">
+                            <img src="/images/projets/sae201/rip.png" 
                                 class="img-fluid rounded border" 
                                 alt="Table de routage dynamique RIP v2">
                         </div>
@@ -113,9 +119,12 @@
                         </p>
                         <div class="mt-3">
                             <p class="text-muted small mb-1">Capture : Commandes de configuration NAT et vérification 'show ip nat translations'</p>
-                            <img src="/images/projets/sae21/config_nat.png" 
+                            <img src="/images/projets/sae201/cnat.png" 
                                 class="img-fluid rounded border" 
                                 alt="Configuration NAT Overload Cisco">
+                            <img src="/images/projets/sae201/nat.png" 
+                                class="img-fluid rounded border" 
+                                alt="NAT translation">
                         </div>
                     </div>
                 </div>
@@ -129,8 +138,8 @@
                             Implémentation de listes de contrôle d'accès (ACL) pour respecter le cahier des charges : protection stricte du VLAN 10 (Administration) qui est le seul autorisé à gérer les actifs, isolation du serveur TFTP pour les sauvegardes de configuration et filtrage des flux entrants depuis le WAN pour prévenir les intrusions.
                         </p>
                         <div class="mt-3">
-                            <p class="text-muted small mb-1">Capture : Tests de ping (Success/Fail) validant les ACL</p>
-                            <img src="/images/projets/sae21/tests_acl.png" 
+                            <p class="text-muted small mb-1">Capture : Tests de ping validant les ACL</p>
+                            <img src="/images/projets/sae201/acl.png" 
                                 class="img-fluid rounded border" 
                                 alt="Résultats des tests de sécurité ACL">
                         </div>
@@ -147,7 +156,7 @@
                         </p>
                         <div class="mt-3">
                             <p class="text-muted small mb-1">Capture : Photo de la maquette physique réalisée ou capture console de l'équipement réel</p>
-                            <img src="/images/projets/sae21/maquette_physique.png" 
+                            <img src="/images/projets/sae201/httpd.png" 
                                 class="img-fluid rounded border" 
                                 alt="Maquette physique en salle TP">
                         </div>

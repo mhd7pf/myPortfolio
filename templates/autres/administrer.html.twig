@@ -25,16 +25,13 @@
         <div class="card shadow p-4 border-0">
             <h3 class="fw-bold mb-3">Ce que j’ai acquis</h3>
             <p class="fs-5">
-                Pour cette compétence (Administrer les réseaux et l'Internet), j'ai d'abord appris à installer et configurer un poste client fonctionnel dans un réseau local, 
-                en maîtrisant l'installation d'Ubuntu et de Windows sur VirtualBox ainsi que les réglages réseau associés (interfaces, modes réseau, tests de connectivité). 
-                J'ai acquis de solides bases sur les systèmes d'exploitation en utilisant Linux en ligne de commande, en gérant les fichiers, les processus, 
-                les droits et en mettant en place des partages de fichiers Samba et NFS, ce qui m'a permis de gérer les accès réseau et les permissions pour différents utilisateurs. <br><br>
-                J'ai consolidé l'adressage IP statique et dynamique, la configuration de postes dans des LAN simulés, ainsi que l'analyse de trames réseau (CDP, ARP, ICMP, ...) avec Wireshark 
-                pour comprendre le fonctionnement d'une infrastructure existante et vérifier la cohérence des communications. Ces apprentissages m'ont également amené à configurer 
-                les fonctions de base d'un réseau local sur des switchs Cisco (VLAN, ports access/trunk, plan d'adressage) et à mettre en place des services réseaux comme DHCP ou TFTP 
-                en lien avec les ressources du semestre 1. <br><br>
-                Au final, je suis désormais capable de documenter une architecture simple, de vérifier les paramètres essentiels (adressage, VLAN, interfaces) 
-                et de sauvegarder les configurations des équipements, ce qui montre un bon niveau d'acquisition de la compétence Administrer au semestre 1.
+                Pour cette compétence, j'ai d'abord appris au premier semestre à configurer un poste client (Ubuntu, Windows) sur <strong>VirtualBox</strong>, en gérant les droits, les processus et les partages de fichiers (Samba/NFS). J'ai aussi découvert les bases du réseau sur switchs Cisco avec les VLANs et l'analyse de trames sur Wireshark. <br><br>
+
+                Au second semestre, j'ai franchi une étape importante en passant de l'ordinateur personnel à la <strong>baie de virtualisation (VMware vSphere)</strong> de l'IUT pour déployer des serveurs professionnels. J'ai appris à interconnecter des sites distants en configurant du <strong>routage dynamique RIPv2</strong> et en sécurisant les accès avec des <strong>ACL</strong> et du <strong>NAT</strong>. <br><br>
+
+                Côté services, j'ai déployé des solutions complètes pour répondre à des besoins concrets, comme la configuration de serveurs Web (Apache, IIS), de services <strong>DNS/DHCP</strong> et même de la <strong>téléphonie sur IP</strong> avec des serveurs vocaux. <br><br>
+
+                Enfin, j'ai commencé à utiliser <strong>Docker</strong> pour moderniser mes méthodes de déploiement. Cette approche me permet de conteneuriser des services (comme des serveurs Web ou des bases de données) afin de les rendre portables, isolés et faciles à répliquer sur n'importe quelle infrastructure.
             </p>
         </div>
     </section>
@@ -44,20 +41,27 @@
             <h3 class="fw-bold mb-3">Mes skills liés à cette compétence</h3>
 
             <div class="d-flex flex-wrap gap-2 fs-5">
-                <span class="badge bg-success me-2 mb-2">Linux</span>
-                <span class="badge bg-primary me-2 mb-2">Administration système</span>
-                <span class="badge bg-primary me-2 mb-2">Administration réseau</span>
-                <span class="badge bg-warning text-dark me-2 mb-2">VirtualBox</span>
-                <span class="badge bg-info me-2 mb-2">Adressage IP &amp; DHCP</span>
-                <span class="badge bg-info me-2 mb-2">VLAN &amp; switch Cisco</span>
-                <span class="badge bg-warning text-dark me-2 mb-2">Cisco Packet Tracer</span>
-                <span class="badge bg-warning text-dark me-2 mb-2">Analyse réseau (Wireshark)</span>
-                <span class="badge bg-secondary me-2 mb-2">Services réseaux (DNS, DHCP, TFTP, ...)</span>
-                <span class="badge bg-success me-2 mb-2">Partages Samba / NFS</span>
-                <span class="badge bg-secondary px-3 py-2">Sauvegarde de configuration via TFTP (tftpd64)</span>
-                <span class="badge bg-dark px-3 py-2">Documentation d’architecture réseau</span>
-            </div>
-
+                {# Virtualisation & Cloud #}
+                <span class="badge bg-warning text-dark me-2 mb-2">VMware vSphere (Baie) & VirtualBox</span>
+                <span class="badge bg-warning text-dark me-2 mb-2">Docker (Conteneurisation de services)</span>
+                
+                {# Systèmes & Annuaires #}
+                <span class="badge bg-primary me-2 mb-2">Windows Server & Active Directory (Samba)</span>
+                <span class="badge bg-success me-2 mb-2">Linux (CentOS, Ubuntu, Kali, Debian, Arch)</span>
+                
+                {# Réseaux & Sécurité #}
+                <span class="badge bg-primary me-2 mb-2">Routage dynamique (RIPv2) & Statique</span>
+                <span class="badge bg-danger me-2 mb-2">ACL (Filtrage) & NAT Overload</span>
+                <span class="badge bg-info me-2 mb-2">Calcul VLSM / CIDR</span>
+                
+                {# Services Réseaux #}
+                <span class="badge bg-secondary me-2 mb-2">DNS, DHCP, TFTP, SMB, FTP, SSH, RDP</span>
+                <span class="badge bg-secondary me-2 mb-2">Serveurs Web (Apache, IIS)</span>
+                <span class="badge bg-dark me-2 mb-2">Téléphonie IP (Asterisk/SVI)</span>
+                
+                {# Matériel & Outils #}
+                <span class="badge bg-success me-2 mb-2">Configuration matériel réel Cisco</span>
+                <span class="badge bg-info me-2 mb-2">Wireshark, Packet Tracer, Putty</span>
             </div>
         </div>
     </section>
